@@ -1,0 +1,22 @@
+{
+  "name": "salwe-otus",
+  "version": "1.0.0",
+  "description": "Otus tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salwe/salwe-otus.git"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "Salwe Breid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salwe/salwe-otus/issues"
+  },
+  "homepage": "https://github.com/salwe/salwe-otus#readme"
+}
