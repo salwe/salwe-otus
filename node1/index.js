@@ -1,29 +1,25 @@
-const data = {
-  name: 1,
-  items: [
-    { name: 2.1,
-      items: [
-        { name: 3.1 },
-        { name: 3.2 },
-        { name: 3.3 },
-      ]
-    },
-    { name: 2.2 },
-  ],
+const getStringEnd = count => {
+    if (count <= 1) return 'likes this';
+    if (count > 1 && count <= 3) return 'like this';
+    return 'others like this';
 };
 
+const getLikesCount = (names, logLength) => {
+    const zeroLikesMsg = 'No one likes this';
+    if (!names) return zeroLikesMsg;
 
-const printLevel = (arr, depth = 0) => {
-  arr.forEach((el, i) => {
-    const char = (i === arr.length - 1 && depth > 0) ? '└' : '├';
-    const prevLines = depth > 0 ? '| '.repeat(depth) : '';
+    const arrLength = names.length;
+    const endString = getStringEnd(arrLength);
+    logLength && logLength(arrLength);
 
-    console.log(`${prevLines}${char}${el.name}\r\n`);
-
-    if (el.hasOwnProperty('items')) {
-      printLevel(el.items, depth + 1);
+    if (!arrLength) return zeroLikesMsg;
+    if (arrLength === 1) return `${names[0]} ${endString}`;
+    if (arrLength === 2) return `${names[0]} and ${names[1]} ${endString}`;
+    if (arrLength === 3) return `${names[0]}, ${names[1]} and ${names[2]} ${endString}`;
+    if (arrLength > 3) {
+        const othersCount = arrLength - 2;
+        return `${names[0]}, ${names[1]} and ${othersCount} ${endString}`;
     }
-  });
 };
 
-printLevel([data]);
+module.exports = getLikesCount;

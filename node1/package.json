@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/salwe/salwe-otus/issues"
   },
-  "homepage": "https://github.com/salwe/salwe-otus#readme"
+  "homepage": "https://github.com/salwe/salwe-otus#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
 }
