@@ -1,21 +1,31 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, {PureComponent, Fragment} from 'react';
+import {NavLink} from 'react-router-dom';
 
+import {UserContext} from '../../context';
 import './style.css';
 
-const Header = props => {
-    return (
-        <div className="header">
-            <div className="container">
-                <div>Курсы</div>
-                <div>Пользователь</div>
-            </div>
-        </div>
-    );
-};
+class Header extends PureComponent {
+    static contextType = UserContext;
 
-Header.propTypes = {
-    
-};
+    render() {
+        const {user} = this.context;
+
+        return (
+            <div className="header">
+                <div className="container navigation">
+                    <NavLink to="/courses">Courses</NavLink>
+                    {user ?
+                        <NavLink to="/user">User</NavLink>
+                        :
+                        <Fragment>
+                            <NavLink to="/signup">Sign up</NavLink>
+                            <NavLink to="/login">Log in</NavLink>
+                        </Fragment>
+                    }
+                </div>
+            </div>
+        );
+    }
+}
 
 export default Header;

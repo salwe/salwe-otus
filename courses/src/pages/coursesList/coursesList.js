@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CoursesList = props => {
+const CoursesList = ({data}) => {
     return (
         <div>
 
@@ -10,7 +10,7 @@ const CoursesList = props => {
 };
 
 CoursesList.propTypes = {
-    
+    data: PropTypes.array,
 };
 
 export default CoursesList;
