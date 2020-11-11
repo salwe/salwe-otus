@@ -1,0 +1,26 @@
+.header {
+    height: 40px;
+    width: 100%;
+    background: #0b2f2f;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.navigation {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    grid-gap: 0 15px;
+    padding-top: 4px;
+}
+
+.navigation>a {
+    color: #bdcabd;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.navigation>a:hover,
+.navigation>a.active {
+    color: #fff;
+}
