@@ -9,7 +9,7 @@ Start backend:
 ### `npm run server`
 
 
-##CLI
+## CLI
 
 *You should run server*
 
