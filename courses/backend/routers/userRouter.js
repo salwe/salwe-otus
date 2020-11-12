@@ -39,14 +39,14 @@ router.post(`${prefix}/signup`, async (req, res) => {
 router.post(`${prefix}/login`, (req, res) => {
     const {login, password} = req.body;
 
-    User.findOne({login}, function (err, user) {
+    User.findOne({login}, (err, user) => {
         if (err) {
             console.error(err);
             res.status(500).json({error: 'Internal error, please try again later'});
         } else if (!user) {
             res.status(401).json({error: 'Incorrect login or password'});
         } else {
-            user.checkPasswordCorrect(password, function (err, same) {
+            user.checkPasswordCorrect(password, (err, same) => {
                 if (err) {
                     console.error(err);
                     res.status(500).json({error: 'Internal error, please try again later'});
@@ -77,10 +77,27 @@ router.get(`${prefix}/users`, auth, (req, res) => {
     });
 });
 
-router.get(`${prefix}/users/current`, async (req, res) => {
+router.get(`${prefix}/users/current`, auth, async (req, res) => {
     const user = await User.findById(req.user._id).select('-password');
 
     res.send(user);
+});
+
+router.put(`${prefix}/users/current`, auth, async (req, res) => {
+    const {_id} = req.user;
+
+    await User.updateOne({_id}, req.body);
+
+    User.findOne({_id}, '-password', (err, user) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({error: 'Internal error, please try again later'});
+        } else if (!user) {
+            res.status(401).json({error: 'Incorrect login or password'});
+        } else {
+            res.status(200).send(user);
+        }
+    });
 });
 
 module.exports = router;
