@@ -1,0 +1,30 @@
+### Get all writers
+GET http://localhost:8080/writers
+Accept: application/json
+
+### Add writer
+POST http://localhost:8080/writers
+Accept: x-www-form-urlencoded
+
+{
+    "firstName": "Marina",
+    "lastName": "Tsvetaeva",
+    "sex": "FEMALE",
+    "birthday": "09.15.1892"
+}
+
+
+### Get books
+GET http://localhost:8080/books
+Accept: application/json
+
+### Add book
+POST http://localhost:8080/books
+Accept: application/json
+
+{
+    "title": "Marina Tsvetaeva. Izbrannoe",
+    "authorId": 1,
+    "publishingHouse": "Prosveshenie",
+    "price": "18"
+}
