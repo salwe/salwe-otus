@@ -14,11 +14,11 @@ export class WriterService {
         return this.writerRepository.findByPk(id);
     }
 
-    async create(data: WriterDTO): Promise<Writer> {
+    async create(data: Partial<WriterDTO>): Promise<Writer> {
         return this.writerRepository.create(data);
     }
 
-    async update(id: number, data: WriterDTO): Promise<Writer> {
+    async update(id: number, data: Partial<WriterDTO>): Promise<Writer> {
         const writer = await this.getById(id);
         await writer.update(data);
 
