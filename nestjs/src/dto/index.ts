@@ -1,6 +1,6 @@
 export enum Sex {
-    MALE,
-    FEMALE,
+    MALE = 'MALE',
+    FEMALE = 'FEMALE',
 }
 
 export interface Book {
@@ -17,4 +17,6 @@ export interface Writer {
     lastName: string,
     sex: Sex,
     birthday: Date,
+    createdAt: Date,
+    updatedAt: Date,
 }

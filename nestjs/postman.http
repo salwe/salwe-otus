@@ -1,3 +1,8 @@
+### Check connection
+GET http://localhost:8080
+Accept: application/json
+
+
 ### Get all writers
 GET http://localhost:8080/writers
 Accept: application/json
