@@ -1,7 +1,13 @@
 #Descriprion
 
-NPM package for displaying object tree
+NPM package for testing function likes :: [String] -> String, which must take in input array, containing the names of people who like an item. It must return the display text as shown in the examples:
 
-#How to use
+likes [] -- must be "no one likes this"
 
-npm run start
+likes ["Peter"] -- must be "Peter likes this"
+
+likes ["Jacob", "Alex"] -- must be "Jacob and Alex like this"
+
+likes ["Max", "John", "Mark"] -- must be "Max, John and Mark like this"
+
+likes ["Alex", "Jacob", "Mark", "Max"] -- must be "Alex, Jacob and 2 others like this"
